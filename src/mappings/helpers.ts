@@ -9,7 +9,7 @@ import { Factory as FactoryContract } from '../types/templates/Pair/Factory'
 import { TokenDefinition } from './tokenDefinition'
 
 export const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
-export const FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
+export const FACTORY_ADDRESS = '0xeac0a50112b5ee20cc18e42ba4d37777012afd0d'
 
 export let ZERO_BI = BigInt.fromI32(0)
 export let ONE_BI = BigInt.fromI32(1)
@@ -119,16 +119,11 @@ export function fetchTokenName(tokenAddress: Address): string {
 let SKIP_TOTAL_SUPPLY: string[] = ['0x0000000000bf2686748e1c0255036e7617e7e8a5']
 
 export function fetchTokenTotalSupply(tokenAddress: Address): BigInt {
-  if (SKIP_TOTAL_SUPPLY.includes(tokenAddress.toHexString())) {
-    return BigInt.fromI32(0)
-  }
-  const contract = ERC20.bind(tokenAddress)
-  let totalSupplyValue = BigInt.zero()
-  const totalSupplyResult = contract.try_totalSupply()
-  if (!totalSupplyResult.reverted) {
-    totalSupplyValue = totalSupplyResult.value
-  }
-  return totalSupplyValue
+  // On non-archive nodes, eth_call at historic blocks fails with "missing trie node".
+  // try_totalSupply() only catches EVM reverts, not RPC-level errors, which causes
+  // the handler to abort. Since totalSupply is cosmetic (not used for pricing),
+  // skip the RPC call entirely.
+  return BigInt.zero()
 }
 
 export function fetchTokenDecimals(tokenAddress: Address): BigInt | null {
