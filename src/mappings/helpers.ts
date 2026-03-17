@@ -9,7 +9,7 @@ import { Factory as FactoryContract } from '../types/templates/Pair/Factory'
 import { TokenDefinition } from './tokenDefinition'
 
 export const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
-export const FACTORY_ADDRESS = '0xeac0a50112b5ee20cc18e42ba4d37777012afd0d'
+export const FACTORY_ADDRESS = '0xD173926A10A0C4eCd3A51B1422270b65Df0551c1'
 
 export let ZERO_BI = BigInt.fromI32(0)
 export let ONE_BI = BigInt.fromI32(1)
