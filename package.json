@@ -10,6 +10,8 @@
     "codegen": "graph codegen --output-dir src/types/",
     "create-lux": "graph create lux/uniswap-v2 --node https://graph.lux.network",
     "deploy-lux": "RUST_LOG=debug graph deploy lux/uniswap-v2 --ipfs https://ipfs.lux.network --node https://${GRAPH_ADMIN_USER}:${GRAPH_ADMIN_PASS}@graph-admin.lux.network",
+    "create-next": "graph create liquidity/uniswap-v2 --node http://graph-node.chain.svc.cluster.local:8020",
+    "deploy-next": "graph deploy liquidity/uniswap-v2 --ipfs http://ipfs.chain.svc.cluster.local:5001 --node http://graph-node.chain.svc.cluster.local:8020",
     "watch-local": "graph deploy lux/uniswap-v2 --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
   },
   "devDependencies": {
