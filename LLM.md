@@ -1,4 +1,4 @@
-# LLM.md - Hanzo Uni V2 Subgraph
+# Hanzo Uni V2 Subgraph
 
 ## Overview
 This subgraph dynamically tracks any pair created by the uniswap factory. It tracks of the current state of Uniswap contracts, and contains derived stats for things like historical data and USD prices
