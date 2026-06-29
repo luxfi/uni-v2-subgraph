@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="uni-v2-subgraph" width="880"></p>
+
 # Uniswap V2 Subgraph
 
 [Uniswap](https://uniswap.org/) is a decentralized protocol for automated token exchange on Ethereum.
